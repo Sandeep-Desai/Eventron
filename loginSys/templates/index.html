@@ -1,0 +1,146 @@
+
+{% extends "base.html" %}
+
+
+<style>
+    div{
+        padding: 0%;
+        margin: 0%;
+        box-sizing: border-box;
+        background-color: rgb(187, 185, 185);
+        background-size: cover;
+        background-position-x: left;
+        font-family: sans-serif;
+        background-image: url("whitebg.jpg");
+        background-repeat: no-repeat;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 0px;
+        text-align: center;
+        
+        
+        
+    
+    }
+    div img{
+        margin-top: 60px;
+    }
+    html{
+        font-family: sans-serif;
+    }
+    div h1{
+        font-family: 'Berkshire Swash', cursive;
+        color: rgb(21, 170, 230);
+       
+    }
+    
+    div hr{
+        width: 330px;
+        margin: auto;
+        padding: 3px;
+        border: none;
+        border-radius: 5px;
+        
+        background-color: rgb(21, 170, 230);
+    }
+    form input[type='text']{
+        width: 98%;
+        align-items: center;
+        padding: 5px;
+        margin: 0px;
+        border:none ;
+        background: transparent;
+        border-bottom: 2px solid rgb(21, 170, 230);
+        font-size: 16px;
+        outline: none;
+    
+    }
+    form input[type='password']{
+        width: 98%;
+        align-items: center;
+        padding: 5px;
+        margin: 0px;
+        border:none ;
+        background: transparent;
+        border-bottom: 2px solid rgb(21, 170, 230);
+        font-size: 16px;
+        outline: none;
+    }
+    form p{
+        font-size: 20px;
+        font-weight:550;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    form input[type='submit']{
+        width: 200px;
+        padding: 7px;
+        background: rgba(21, 171, 230, 0.623);
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        outline: none;
+        font-size: 20px;
+        transition: 0.5s;
+        margin: 40px;
+        
+        
+    }
+    form input[type='submit']:hover{
+        background: rgba(218, 40, 40, 0.0.623);
+        transform: scale(1.1);
+        box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.83);
+        -webkit-box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.83);
+        -moz-box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.83);
+        }
+    
+    
+</style>
+{% block head %}
+{% endblock %}
+<div class="container">
+        
+    <img src="logo4.png" alt="" width="200px">
+    
+    
+    <h1>Welcome to Eventron</h1>
+    <hr>
+    <form >
+        <p>Email</p>
+        {{form.email}}
+        {% if form.email.errors %}
+<div style="color:red">Please Enter a valid email address</div>
+{% endif %}
+        <p>Password</p>
+        {{form.password}}
+        <br>
+        <div>
+            Remember me :{{form.remember}}
+            </div>
+        <br>
+        % with messages=get_flashed_messages(with_categories=true) %}
+{% if messages  %}
+{% for category,message in messages %}
+<div class="alert alert-danger" >{{message}}</div>
+</div>
+{%endfor%}
+{%endif%}
+{% endwith %}
+{{form.submit(class="btn btn-success")}}
+        <p>Don't you have an account? <a href="#"> Register here</a></p>
+    </form>
+
+</div>
+{% block body %}
+
+
+
+<
+<body>
+    
+    
+
+</body>
+</html>

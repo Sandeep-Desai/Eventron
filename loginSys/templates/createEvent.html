@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block head %}
+{% endblock %}
+{% block body %}
+
+<h2 class="display-2" style="text-align: center;">Create Event</h2>
+<div class="container" style="width: 400px;">
+<form action="" method="POST">
+    {{form.hidden_tag()}}
+Event Name:
+{{form.event_name(class="form-control")}}
+<br>
+
+Email id of members:<div style="color: blue;">(Use comma seprated email and avoid spaces)</div>{{form.email(class="form-control")}} <br>
+
+<!-- <br> -->
+<!-- {% if form.email.errors %}
+{% for error in form.email.errors %}
+<div style="color:red">{{error}}</div>
+{% endfor %}
+{% endif %} -->
+Event Code:{{form.event_code(class="form-control")}} <br>
+
+Confirm code:{{form.confirm_code(class="form-control")}} <br>
+{% if form.confirm_code.errors %}
+<div style="color:red">Please ensure that password and confirm password are same</div>
+{% endif %}
+<br>
+
+Admin Email Password:{{form.admin_password(class="form-control")}}
+
+<!-- Email:<div><input type="email" name="email" id="email"></div> -->
+<div >{{form.submit(class="btn btn-primary")}} </div>
+</form>
+<!-- <a href="/" class="btn btn-success" style="margin-top: 20px;"  >Already Have An Account</a> -->
+</div>
+<!-- {% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages  %}
+{% for category,message in messages %}
+<div class="alert alert-danger" >{{message}}</div>
+{%endfor%}
+{%endif%}
+{% endwith %} -->
+{% endblock %}

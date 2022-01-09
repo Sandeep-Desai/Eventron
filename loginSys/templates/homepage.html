@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<div style="display: flex; flex-direction:row; justify-content:space-between; ">
+<a class="btn btn-success" href="/createEvent/{{user.id}}" style="text-decoration: none; color:white">Create Event</a>
+<h2 style="margin: auto;">Eventron</h2>
+<span>
+
+<a href="/loginInEvent/{{user.id}}" class="btn btn-primary">Go to Event</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% endblock %}
+{% block body %}
+
+<h2 class="display-2" style="text-align: center;">Sign Up Here</h2>
+<div class="container" style="width: 400px;">
+<form action="" method="POST">
+    {{form.hidden_tag()}}
+User Name:
+{{form.username(class="form-control")}}
+<br>
+{% if form.username.errors %}
+{% for error in form.username.errors %}
+<div style="color:red">{{error}}</div>
+{% endfor %}
+{% endif %}
+Email Id:{{form.email(class="form-control")}} <br>
+{% if form.email.errors %}
+{% for error in form.email.errors %}
+<div style="color:red">{{error}}</div>
+{% endfor %}
+{% endif %}
+Set Password:{{form.password(class="form-control")}} <br>
+
+Confirm Password:{{form.confirm_password(class="form-control")}} <br>
+{% if form.confirm_password.errors %}
+<div style="color:red">Please ensure that password and confirm password are same</div>
+{% endif %}
+<br>
+<div >{{form.submit(class="btn btn-primary")}} </div>
+</form>
+<a href="/loginForm" class="btn btn-success" style="margin-top: 20px;"  >Already Have An Account</a>
+</div>
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages  %}
+{% for category,message in messages %}
+<div class="alert alert-danger" >{{message}}</div>
+{%endfor%}
+{%endif%}
+{% endwith %}
+{% endblock %}

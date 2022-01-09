@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block head %}
+{% endblock %}
+{% block body %}
+<h2 class="display-2" style="text-align: center;">Log In Eventron</h2>
+<div class="container" style="width: 400px;">
+<form action="" method="POST">
+    {{form.hidden_tag()}}
+<!-- User Name:{{form.username}} <br> -->
+Email Id:{{form.email(class="form-control")}} <br>
+{% if form.email.errors %}
+<div style="color:red">Please Enter a valid email address</div>
+{% endif %}
+Password:{{form.password(class="form-control")}} <br>
+
+<!-- {% if form.password.errors %}
+{% for error in form.password.errors %}
+<div style="color:red">{{error}}</div>
+{% endfor %}
+{% endif %} -->
+<div>
+<!-- Remember me :{{form.remember}} -->
+</div>
+{{form.submit(class="btn btn-success")}}
+<div>
+    <br>
+<a href="/registration" class="btn btn-primary">Don't have a acoount</a>
+</div>
+</form>
+
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages  %}
+{% for category,message in messages %}
+<div class="alert alert-danger" >{{message}}</div>
+</div>
+{%endfor%}
+{%endif%}
+{% endwith %}
+
+</div>
+<!-- Confirm Password:{{form.confirm_password}} <br> -->
+{% endblock %}
